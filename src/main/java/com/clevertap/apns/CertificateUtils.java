@@ -131,9 +131,9 @@ public class CertificateUtils {
         // Ensure that it's a push certificate
         final Map<String, String> stringStringMap = CertificateUtils.splitCertificateSubject(certificate.getSubjectDN().getName());
         final String cn = stringStringMap.get("CN");
-        if (!cn.toLowerCase().contains("push")) {
-            throw new CertificateException("Not a push certificate - " + cn);
-        }
+//        if (!cn.toLowerCase().contains("push")) {
+//            throw new CertificateException("Not a push certificate - " + cn);
+//        }
 
         if (production && cn.toLowerCase().contains("apple development ios push services")) {
             throw new CertificateEnvironmentMismatchException("Invalid environment for this certificate");
